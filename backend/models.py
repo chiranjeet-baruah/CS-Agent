@@ -58,6 +58,8 @@ class AgentCapability(BaseModel):
     confidence_score: float = Field(ge=0.0, le=1.0)
 
 class AgentConfiguration(BaseModel):
+    model_config = {"protected_namespaces": ()}
+    
     model_provider: Literal["openai", "anthropic", "gemini"] = "openai"
     model_name: str = "gpt-4o-mini"
     temperature: float = Field(default=0.7, ge=0.0, le=2.0)
