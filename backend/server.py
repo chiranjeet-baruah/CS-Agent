@@ -102,14 +102,17 @@ async def initialize_default_agents():
             ]
             
             for agent_data in agents_data:
+                capabilities_data = agent_data.pop("capabilities")
+                system_prompt = agent_data.pop("system_prompt")
+                
                 agent = Agent(
                     **agent_data,
                     configuration=AgentConfiguration(
-                        system_prompt=agent_data["system_prompt"],
+                        system_prompt=system_prompt,
                         model_provider="openai",
                         model_name="gpt-4o-mini"
                     ),
-                    capabilities=[AgentCapability(**cap) for cap in agent_data["capabilities"]]
+                    capabilities=[AgentCapability(**cap) for cap in capabilities_data]
                 )
                 await db_manager.create_agent(agent)
             
