@@ -117,7 +117,7 @@ function App() {
                   <div className="flex flex-wrap gap-1">
                     {agent.capabilities.map((capability, index) => (
                       <span key={index} className="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs">
-                        {capability}
+                        {capability.name}
                       </span>
                     ))}
                   </div>
