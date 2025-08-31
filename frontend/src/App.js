@@ -148,7 +148,7 @@ function App() {
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">Response Time</p>
                   <p className="text-2xl font-bold text-gray-900">{Math.round(dashboardStats.avg_response_time_ms)}ms</p>
-                  <p className="text-xs text-green-600">Target: <100ms</p>
+                  <p className="text-xs text-green-600">Target: &lt;100ms</p>
                 </div>
               </div>
             </div>
