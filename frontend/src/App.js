@@ -21,10 +21,12 @@ function App() {
       setLoading(true);
       setError(null);
       const response = await axios.get(`${API_BASE_URL}/agents`);
-      setAgents(response.data.agents);
+      // The new backend returns the agents array directly, not wrapped in an object
+      setAgents(response.data || []);
     } catch (error) {
       console.error('Error fetching agents:', error);
       setError('Failed to load agents. Please check your connection.');
+      setAgents([]); // Ensure agents is always an array
     } finally {
       setLoading(false);
     }
