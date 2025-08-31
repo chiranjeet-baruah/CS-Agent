@@ -14,16 +14,13 @@ load_dotenv()
 
 # Import our models and services
 from models import *
-from database import DatabaseManager, get_database
+from database import db_manager, get_database
 from ai_service import get_ai_coordinator, get_knowledge_service
 from websocket_manager import get_connection_manager, get_websocket_handler
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Database manager instance
-db_manager = DatabaseManager()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
