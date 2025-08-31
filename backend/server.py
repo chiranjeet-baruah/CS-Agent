@@ -14,7 +14,7 @@ load_dotenv()
 
 # Import our models and services
 from models import *
-from database import db_manager, get_database
+from database import DatabaseManager, db_manager, get_database
 from ai_service import get_ai_coordinator, get_knowledge_service
 from websocket_manager import get_connection_manager, get_websocket_handler
 
